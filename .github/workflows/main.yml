@@ -12,6 +12,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Trigger Project B CI
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: Dawn-githup/spore-demo-1
+          event-type: ci-event
+
       - name: Checkout repository
         uses: actions/checkout@v2
 
